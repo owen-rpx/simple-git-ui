@@ -1,7 +1,7 @@
-# vscode-simple-git-ui README
+# README
 
-This is the README for your extension "vscode-simple-git-ui". After writing up a brief description, we recommend including the following sections.
-
+ This is project for vscode extension of git UI that can provide better UE to developers.
+ Nodejs 16.17.0 for development env.
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
@@ -67,5 +67,5 @@ You can author your README using Visual Studio Code. Here are some useful editor
 
 * [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-Nodejs 16.17.0
+
 **Enjoy!**
