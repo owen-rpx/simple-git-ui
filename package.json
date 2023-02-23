@@ -1,0 +1,155 @@
+{
+  "name": "vscode-simple-git-ui",
+  "displayName": "vscode-simple-git-ui",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "git-ui.main",
+        "title": "git status"
+      },
+      {
+        "command": "git-ui.refresh",
+        "title": "refresh"
+      },
+      {
+        "command": "git-ui.gitStatus",
+        "title": "git status"
+      },
+      {
+        "command": "git-ui.initRepository",
+        "title": "init repository"
+      },
+      {
+        "command": "git-ui.openRepository",
+        "title": "open repository"
+      },
+      {
+        "command": "git-ui.branchList",
+        "title": "branch list"
+      },
+      {
+        "command": "git-ui.checkOut",
+        "title": "check out"
+      },
+      {
+        "command": "git-ui.deleteBranch",
+        "title": "delete branch"
+      },
+      {
+        "command": "git-ui.newBranch",
+        "title": "new branch"
+      },
+      {
+        "command": "git-ui.findBranch",
+        "title": "find branch"
+      },
+      {
+        "command": "git-ui.addFiles",
+        "title": "add files"
+      },
+      {
+        "command": "git-ui.commit",
+        "title": "commit"
+      },
+      {
+        "command": "git-ui.push",
+        "title": "push"
+      },
+      {
+        "command": "git-ui.pull",
+        "title": "pull"
+      },
+      {
+        "command": "git-ui.merge",
+        "title": "merge"
+      },
+      {
+        "command": "git-ui.stash",
+        "title": "stash"
+      },
+      {
+        "command": "git-ui.logger",
+        "title": "logger"
+      },
+      {
+        "command": "git-ui.output",
+        "title": "output"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "git-source-control",
+          "title": "%displayName%",
+          "icon": "$(type-hierarchy)"
+        }
+      ]
+    },
+    "views": {
+      "git-source-control": [
+        {
+          "id": "git-tree-view",
+          "name": "%git.tree.view%",
+          "type": "tree"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "git-tree-view",
+        "contents": "%git.tree.view.content%",
+        "when": "config.git.enabled"
+      }
+    ],
+    "menus": {
+      "view/title": [],
+      "view/item/context": [
+        {
+          "command": "git-ui.commit",
+          "when": "viewItem == changes",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/__test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "@vscode/test-electron": "^2.2.2",
+    "eslint": "^8.33.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.1.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "simple-git": "^3.16.1"
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "displayName": "Simple Git UI",
+    "git.tree.view": "Git Tree list",
+    "git.tree.view.content": {
+        "message": "The folder currently open doesn't have a git repository. You can initialize a repository which will enable source control features powered by git.\n[Initialize Repository](command:git-ui.initRepository)\n."
+    }
+}
