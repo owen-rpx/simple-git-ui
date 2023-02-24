@@ -3,7 +3,7 @@
 import * as vscode from "vscode";
 import { Git } from "./commands/commands";
 import { FileWatcher } from "./models/fileWatcher";
-import { Logger } from "./models/logger";
+import { createLogger } from "./models/logger";
 import { createGitTreeView } from "./views/gitTreeView";
 
 // This method is called when your extension is activated
@@ -19,19 +19,21 @@ export async function activate(context: vscode.ExtensionContext) {
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
 
-  const logger = new Logger();
+  const logger = createLogger();
+  // vscode.FileDecoration
   const treeViewProvider = await createGitTreeView();
+  logger.log("Simple git ui loading...");
   const disposableRefresh = vscode.commands.registerCommand(
     "git-ui.refresh",
     async () => {
-      logger.log("[cmd]refresh");
+      logger.log("refresh");
       treeViewProvider.refresh();
     }
   );
   const disposable = vscode.commands.registerCommand(
     "git-ui.initRepository",
     async () => {
-      logger.log("[cmd]init repos");
+      logger.log("init repos");
       const git = new Git();
       await git.init();
       await vscode.commands.executeCommand("git-ui.refresh");
@@ -51,4 +53,6 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 
 // This method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() {
+  /* TODO document why this function 'deactivate' is empty */
+}
