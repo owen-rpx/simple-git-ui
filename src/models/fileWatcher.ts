@@ -8,7 +8,15 @@ enum FileAction {
 }
 export class FileWatcher {
   watcher: vscode.FileSystemWatcher | undefined;
-  ignore = [".git/index"];
+  ignore = [
+    ".git/index",
+    ".git/HEAD",
+    ".git/config",
+    ".git/hooks",
+    ".git/info",
+    ".git/refs",
+    ".git/description",
+  ];
   constructor() {
     const folder: vscode.WorkspaceFolder | undefined =
       vscode.workspace.workspaceFolders?.[0];
